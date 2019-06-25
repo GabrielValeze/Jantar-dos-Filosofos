@@ -4,23 +4,23 @@ package jantardosfilosofos;
 // Esta classe será responsável por manter o estado de cada filósofo, se está comendo ou pensando.
 public class Filosofo extends Thread {
 
-    final static int tempoProcessamento = 5000; // 5 segundos.
-    MesaJantar mesa;
-    String nome; // nome do filosofo
-    int filosofo;
+    String nome; // nome do filosofo.
+    MesaJantar mesa; // mesa que o filosofo está.
+    int numeroFilosofo; // numero de identificacao do filosofo.
 
-    public Filosofo(String nome, MesaJantar mesadejantar, int fil) {
-        super(nome);
+    // Cria um filosofo com os valores passados por parametro.
+    public Filosofo(String nomeFilosofo, MesaJantar mesadejantar, int numFilosofo) {
+        nome = nomeFilosofo;
         mesa = mesadejantar;
-        filosofo = fil;
+        numeroFilosofo = numFilosofo;
     }
 
     @Override
     public void run() {
         while (true) {
-            pensar(tempoProcessamento);
+            pensar(5000); // pensa por 5 segundos.
             getGarfos();
-            comer(tempoProcessamento);
+            comer(5000); // come por 5 segundos.
             returnGarfos();
         }
     }
@@ -42,10 +42,10 @@ public class Filosofo extends Thread {
     }
 
     public void getGarfos() {
-        mesa.pegarGarfos(filosofo);
+        mesa.pegarGarfos(numeroFilosofo);
     }
 
     public void returnGarfos() {
-        mesa.returningGarfos(filosofo);
+        mesa.returningGarfos(numeroFilosofo);
     }
 }

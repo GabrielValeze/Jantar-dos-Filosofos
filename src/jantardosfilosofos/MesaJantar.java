@@ -1,3 +1,4 @@
+// @author Gabriel Valeze e Juan Carlos
 package jantardosfilosofos;
 
 public class MesaJantar {
