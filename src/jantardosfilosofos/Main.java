@@ -1,21 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// @author Gabriel Valeze e Juan Carlos
 package jantardosfilosofos;
 
-/**
- *
- * @author Gabriel Valeze e Juan Carlos
- */
-public class Main { //Esta classe será responsável por iniciar o código.
+// Esta classe será responsável por iniciar o código.
+public class Main {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        MesaJantar mesa = new MesaJantar();
+        for (int filosofo = 0; filosofo < 5; filosofo++) {
+            new Filosofo("Filosofo_" + filosofo, mesa, filosofo).start();
+        }
     }
-    
+
 }
